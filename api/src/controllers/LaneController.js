@@ -4,7 +4,7 @@ class LaneController {
 
     async index(req, res) {
         try {
-            const list = await Lane.find();
+            const list = await Lane.find().populate('orders');
             return res.json(list);
         }
         catch (err) {

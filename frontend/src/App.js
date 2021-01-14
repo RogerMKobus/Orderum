@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './components/header'
-import Main from './components/main'
+import Header from './components/Header'
+import Main from './components/Main'
 import GlobalStyle from './styles/global'
 
 export default class App extends React.Component {

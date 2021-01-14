@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: lightgrey;
-  padding: 0 2%;
-`;
+  height: 80px;
+  padding: 0 30px;
+  background: #073596;
+  color: #FFF;
 
-export const Content = styled.div`
   display: flex;
   align-items: center;
-  padding: 1%;
 `;
