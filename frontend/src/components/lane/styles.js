@@ -1,15 +1,29 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div `
   display: flex;
   padding: 0 15px;
   height: 100%;
   flex: 0 0 320px;
+  justify-content: space-between;
 
-  
+
+  .space{
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    margin: 0 50px;
+    padding: 0 15px;
+    flex: 0 0 320px;
+    font-size:18px;
+    
+  }
+
   div{
       font-size:18px;
-      color:black;
-      padding: 0 100px;
-  }
+   }
+
+  h2 {
+      font-weight: bold;
+      font-size: 25px;
+      padding: 10px;
+    }
 `;
