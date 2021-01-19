@@ -7,7 +7,8 @@ export const Container = styled.div`
   flex: 0 0 320px;
 
   
-  h1{
+  div{
+      font-size:18px;
       color:black;
       padding: 0 100px;
   }

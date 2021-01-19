@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from './components/Header'
-import Main from './components/Main'
+import Board from './components/Board'
 import GlobalStyle from './styles/global'
 
 export default class App extends React.Component {
-  render(){
+  render() {
     return (
-      
+
       <div className="App">
         <GlobalStyle />
         <Header />
-        <Main />
+        <Board />
       </div>
     );
   }
