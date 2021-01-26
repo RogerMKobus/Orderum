@@ -5,8 +5,6 @@ export const Container = styled.div `
   padding: 0 15px;
   height: 100%;
   flex: 0 0 320px;
-  justify-content: space-between;
-
 
   .space{
     border-left: 1px solid rgba(0, 0, 0, 0.05);
@@ -14,12 +12,7 @@ export const Container = styled.div `
     padding: 0 15px;
     flex: 0 0 320px;
     font-size:18px;
-    
   }
-
-  div{
-      font-size:18px;
-   }
 
   h2 {
       font-weight: bold;
