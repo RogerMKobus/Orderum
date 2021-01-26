@@ -15,7 +15,7 @@ class LaneController {
     async store(req, res) {
         try {
             if (!req.body.title) {
-                return res.status(400).json({ error: "Campo título é de preencgimento obrigatório" })
+                return res.status(400).json({ error: "Campo título é de preenchimento obrigatório" })
             }
 
             const lane = await Lane.create(req.body);

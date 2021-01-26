@@ -15,7 +15,10 @@ class OrderController {
     async store(req, res) {
         try {
             if (!req.body.title) {
-                return res.status(400).json({ error: "Campo título é de preencgimento obrigatório" })
+                return res.status(400).json({ error: "Campo título é de preenchimento obrigatório" })
+            }
+            if (!req.body.date) {
+                return res.status(400).json({ error: "Campo data é de preenchimento obrigatório" })
             }
 
             const order = await Order.create(req.body);
