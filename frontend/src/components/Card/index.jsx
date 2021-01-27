@@ -20,34 +20,26 @@ export default function Card({ order }) {
                     <p>{order.title}</p>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
+                    <Typography component={'span'}>
                         {order.description
                             ?
                             <>
-                                <h4>
-                                    Descrição:
-                                </h4>
-                                <p>
-                                    {order.description}
-                                </p>
+                                <h4>Descrição:</h4>
+                                <p>{order.description}</p>
                             </>
                             :
-                            <>
-                            </>
+                            <></>
                         }
                         {order.contact
                             ?
                             <>
-                                <h4>
-                                    Contato:
-                                </h4>
+                                <h4>Contato:</h4>
                                 <p className='inline'>
                                     {order.contact}
                                 </p>
                             </>
                             :
-                            <>
-                            </>
+                            <></>
                         }
                         <br />
                         <h4>Data:</h4>

@@ -1,10 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App.jsx';
+import React from "react";
+import ReactDOM from "react-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+import GlobalStyle from './styles/global.js'
+
+import Main from './pages/Main/index.jsx'
+import EditOrder from './pages/EditOrder/index.jsx'
+
+function App() {
+  return (
+    <div>
+      <GlobalStyle />
+      <Switch>
+        <Route path="/edit">
+          <EditOrder />
+        </Route>
+
+        <Route path="/">
+          <Main />
+        </Route>
+      </Switch>
+    </div>
+  );
+}
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Router>,
+  document.getElementById("root")
 );
