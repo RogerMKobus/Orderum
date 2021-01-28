@@ -6,6 +6,9 @@ import Input from '../../components/Form/Input'
 import api from '../../services/api'
 import { Container } from './styles';
 import { useHistory } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import CheckIcon from '@material-ui/icons/Check';
 
 function EditOrder() {
     let history = useHistory();
@@ -30,12 +33,15 @@ function EditOrder() {
                     Editar Pedido
                 </h1>
                 <Form initialData={order} onSubmit={handleSubmit}>
-                    <Input name='title' />
-                    <Input name='description' />
-                    <Input name='contact' />
+                    <label>Título:</label>
+                    <Input classname='input' name='title' />
+                    <label>Descrição:</label>
+                    <Input classname='input' name='description' />
+                    <label>Contato:</label>
+                    <Input classname='input' name='contact' />
 
-                    <button type='submit'>Salvar</button>
-                    <button onClick={handleRedirect}>Voltar</button>
+                    <Button size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
+                    <Button variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
                 </Form>
             </Container>
         </>
