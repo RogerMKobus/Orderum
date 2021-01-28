@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
+ 
 import { Container } from './styles';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
@@ -10,6 +12,16 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default function Card({ order }) {
+
+    let history = useHistory();
+
+    function handleRedirect(){
+        console.log(order)
+        history.push({
+            pathname:'/edit',
+            state:{order: order},
+        })
+    }
 
     return (
         <Container>
@@ -46,7 +58,7 @@ export default function Card({ order }) {
                         <p className='inline'>
                             {order.date}
                         </p>
-                        <IconButton size='small' className='edit'>
+                        <IconButton size='small' className='edit' onClick={handleRedirect}>
                             <EditIcon />
                         </IconButton>
                         <IconButton size='small' className='right'>

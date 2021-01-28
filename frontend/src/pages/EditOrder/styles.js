@@ -7,6 +7,5 @@ export const Container = styled.div`
   position: relative;
   input{
       width: 25rem;
-
   }
 `;
