@@ -29,4 +29,5 @@ export const Container = styled.div `
     display:inline-block;
     left: 250px;
   }
+
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
- 
+import api from '../../services/api'
 import { Container } from './styles';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
@@ -15,12 +15,25 @@ export default function Card({ order }) {
 
     let history = useHistory();
 
-    function handleRedirect(){
-        console.log(order)
+    function handleRedirect() {
         history.push({
-            pathname:'/edit',
-            state:{order: order},
+            pathname: '/edit',
+            state: { order: order },
         })
+    }
+
+    async function handleDelete() {
+        const confirm = window.confirm('Tem certeza que deseja remover o pedido?')
+        if (confirm === true) {
+            try {
+                await api.delete(`/${order._id}/order`)
+                window.location.reload();
+            }
+            catch (err) {
+                alert('Erro ao deletar o pedido ' + err)
+                console.log(err)
+            }
+        }
     }
 
     return (
@@ -61,7 +74,7 @@ export default function Card({ order }) {
                         <IconButton size='small' className='edit' onClick={handleRedirect}>
                             <EditIcon />
                         </IconButton>
-                        <IconButton size='small' className='right'>
+                        <IconButton size='small' className='right' onClick={handleDelete}>
                             <DeleteIcon />
                         </IconButton>
                     </Typography>

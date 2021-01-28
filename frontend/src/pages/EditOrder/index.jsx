@@ -17,11 +17,17 @@ function EditOrder() {
     const order = location.state.order
 
     async function handleSubmit(data) {
-        await api.put(`/${order._id}/order`, data);
-        history.push('/')
+        try {
+            await api.put(`/${order._id}/order`, data);
+            history.push('/')
+        }
+        catch (err) {
+            alert('Erro ao atualizar o pedido ' + err)
+            console.log(err)
+        }
     }
 
-    function handleRedirect(){
+    function handleRedirect() {
         history.push('/')
     }
 
