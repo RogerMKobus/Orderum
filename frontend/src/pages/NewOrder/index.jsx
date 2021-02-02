@@ -16,9 +16,9 @@ function EditOrder() {
 
     async function handleSubmit(data) {
         try {
-            data.date = data.date.toLocaleDateString()
+            data.date = data.date.toLocaleDateString();
             await api.post(`/order`, data);
-            history.push('/')
+            history.push('/');
         }
         catch (err) {
             alert('Erro ao cadastrar o pedido ' + err)

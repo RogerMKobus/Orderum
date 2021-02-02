@@ -9,6 +9,8 @@ import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CheckIcon from '@material-ui/icons/Check';
+import DatePicker from "../../components/Form/DatePicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function EditOrder() {
     let history = useHistory();
@@ -18,6 +20,7 @@ function EditOrder() {
 
     async function handleSubmit(data) {
         try {
+            data.date = data.date.toLocaleDateString();
             await api.put(`/${order._id}/order`, data);
             history.push('/')
         }
@@ -45,7 +48,10 @@ function EditOrder() {
                     <Input name='description' />
                     <label>Contato:</label>
                     <Input name='contact' />
-
+                    <label>Data:</label>
+                    <br />
+                    <DatePicker className='date' name='date'/>
+                    <br />
                     <Button size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
                     <Button variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
                 </Form>

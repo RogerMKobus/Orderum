@@ -31,4 +31,13 @@ export const Container = styled.div`
     height: 50px;
     font-weight: bold;
   }
+
+  .date{
+    text-align: center;
+    width: 100%;
+    height: 35px;
+    font-size:20px;
+    margin: 10px auto;
+    padding-left: 5px;
+  }
 `;
