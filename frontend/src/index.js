@@ -10,6 +10,7 @@ import GlobalStyle from './styles/global.js'
 
 import Main from './pages/Main/index.jsx'
 import EditOrder from './pages/EditOrder/index.jsx'
+import NewOrder from './pages/NewOrder/index.jsx'
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
       <Switch>
         <Route path="/edit">
           <EditOrder />
+        </Route>
+
+        <Route path="/new-order">
+          <NewOrder />
         </Route>
 
         <Route path="/">

@@ -40,11 +40,11 @@ function EditOrder() {
                 </h1>
                 <Form initialData={order} onSubmit={handleSubmit}>
                     <label>Título:</label>
-                    <Input classname='input' name='title' />
+                    <Input name='title' />
                     <label>Descrição:</label>
-                    <Input classname='input' name='description' />
+                    <Input name='description' />
                     <label>Contato:</label>
-                    <Input classname='input' name='contact' />
+                    <Input name='contact' />
 
                     <Button size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
                     <Button variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
