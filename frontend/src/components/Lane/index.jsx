@@ -13,7 +13,7 @@ export default function Lane({ lanes, orders }) {
                     <h2>{lane.title}</h2>
                     {orders.map((order) => {
                         if (order.lane === lane._id) {
-                            return <Card key={order.createdAt} order={order}  />
+                            return <Card key={order.createdAt} order={order} lanes={lanes}  />
                         }
                     })}
                 </header>

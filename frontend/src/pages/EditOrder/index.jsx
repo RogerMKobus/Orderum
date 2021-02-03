@@ -11,6 +11,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CheckIcon from '@material-ui/icons/Check';
 import DatePicker from "../../components/Form/DatePicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Select from "../../components/Form/Select";
 
 function EditOrder() {
     let history = useHistory();
@@ -18,9 +19,12 @@ function EditOrder() {
 
     const order = location.state.order
 
+    const lanes = location.state.lanes
+
     async function handleSubmit(data) {
         try {
             data.date = data.date.toLocaleDateString();
+            console.log(data)
             await api.put(`/${order._id}/order`, data);
             history.push('/')
         }
@@ -33,6 +37,12 @@ function EditOrder() {
     function handleRedirect() {
         history.push('/')
     }
+
+        const options = lanes.map((lane) =>
+            [
+                { value: lane._id, label: lane.title }
+            ]
+        )
 
     return (
         <>
@@ -50,8 +60,10 @@ function EditOrder() {
                     <Input name='contact' />
                     <label>Data:</label>
                     <br />
-                    <DatePicker className='date' name='date'/>
+                    <DatePicker className='date' name='date' />
                     <br />
+                    <label>Linha:</label>
+                    <Select name='lane' options={options} />
                     <Button size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
                     <Button variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
                 </Form>

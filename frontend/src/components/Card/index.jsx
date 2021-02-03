@@ -11,14 +11,17 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-export default function Card({ order }) {
+export default function Card({ order, lanes }) {
 
     let history = useHistory();
 
     function handleRedirect() {
         history.push({
             pathname: '/edit',
-            state: { order: order },
+            state: { 
+                order,
+                lanes
+             },
         })
     }
 
