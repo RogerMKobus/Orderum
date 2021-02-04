@@ -14,7 +14,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import Select from "../../components/Form/Select";
 
 function EditOrder() {
+
     let history = useHistory();
+
     const location = useLocation();
 
     const order = location.state.order
@@ -24,7 +26,6 @@ function EditOrder() {
     async function handleSubmit(data) {
         try {
             data.date = data.date.toLocaleDateString();
-            console.log(data)
             await api.put(`/${order._id}/order`, data);
             history.push('/')
         }
@@ -38,11 +39,11 @@ function EditOrder() {
         history.push('/')
     }
 
-        const options = lanes.map((lane) =>
-            [
-                { value: lane._id, label: lane.title }
-            ]
-        )
+    const options = lanes.map((lane) => {
+        return { value: lane._id, label: lane.title }
+    });
+
+    const getLane = lanes.find((lane) => lane._id === order.lane)
 
     return (
         <>
@@ -63,7 +64,7 @@ function EditOrder() {
                     <DatePicker className='date' name='date' />
                     <br />
                     <label>Linha:</label>
-                    <Select name='lane' options={options} />
+                    <Select name='lane' options={options} laneTitle={getLane.title} />
                     <Button size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
                     <Button variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
                 </Form>

@@ -2,8 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import ReactSelect from 'react-select';
 import { useField } from '@unform/core';
 
-
-const Select = ({ name, ...rest }) => {
+const Select = ({ name, laneTitle, ...rest }) => {
     const selectRef = useRef(null);
     const { fieldName, defaultValue, registerField } = useField(name);
 
@@ -22,7 +21,7 @@ const Select = ({ name, ...rest }) => {
 
     return (
         <ReactSelect
-            defaultValue={defaultValue}
+            defaultValue={{ value: defaultValue, label: laneTitle }}
             ref={selectRef}
             classNamePrefix="react-select"
             {...rest}
