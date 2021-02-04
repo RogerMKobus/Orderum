@@ -14,7 +14,7 @@ const Select = ({ name, laneTitle, ...rest }) => {
                 if (!ref.state.value) {
                     return '';
                 }
-                return ref.state.value[0].value;
+                return ref.state.value.value;
             },
         });
     }, [fieldName, registerField]);
