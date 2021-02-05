@@ -48,8 +48,8 @@ function EditOrder() {
                     <br />
                     <DatePicker className='date' name='date'/>
                     <br />
-                    <Button size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
-                    <Button variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
+                    <Button className='buttonClass' size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
+                    <Button className='buttonClass' variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
                 </Form>
             </Container>
         </>

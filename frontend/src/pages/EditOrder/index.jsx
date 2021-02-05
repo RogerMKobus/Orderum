@@ -65,8 +65,8 @@ function EditOrder() {
                     <br />
                     <label>Linha:</label>
                     <Select name='lane' options={options} laneTitle={getLane.title} />
-                    <Button size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
-                    <Button variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
+                    <Button className='buttonClass' size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
+                    <Button className='buttonClass' variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
                 </Form>
             </Container>
         </>

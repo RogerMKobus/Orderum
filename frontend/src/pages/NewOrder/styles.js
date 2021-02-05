@@ -25,7 +25,7 @@ export const Container = styled.div`
     padding-left: 5px;
   }
 
-  button{
+  .buttonClass{
     margin: 20px;
     width: 150px;
     height: 50px;
