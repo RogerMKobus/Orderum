@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div `
   flex: 0 0 500px;
   text-align: center;
   width: 100%;
@@ -23,6 +23,8 @@ export const Container = styled.div`
     font-size:20px;
     margin: 10px auto;
     padding-left: 5px;
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
   }
 
   .buttonClass{
@@ -40,4 +42,16 @@ export const Container = styled.div`
     margin: 10px auto;
     padding-left: 5px;
   }
+
+  .select{
+    height: 40px;
+    overflow: unset;
+    caret-color: transparent;
+    width: 40%;
+    font-size:20px;
+    margin: 10px auto;
+    padding-left: 5px;
+  }
+
+  .Select__value-container { height: 40px; }
 `;

@@ -23,6 +23,8 @@ export const Container = styled.div`
     font-size:20px;
     margin: 10px auto;
     padding-left: 5px;
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
   }
 
   .buttonClass{

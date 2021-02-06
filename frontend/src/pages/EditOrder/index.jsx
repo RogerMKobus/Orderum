@@ -64,7 +64,7 @@ function EditOrder() {
                     <DatePicker className='date' name='date' />
                     <br />
                     <label>Linha:</label>
-                    <Select name='lane' options={options} laneTitle={getLane.title} />
+                    <Select classNamePrefix="Select" className='select' name='lane' options={options} laneTitle={getLane.title} minMenuHeight='35' />
                     <Button className='buttonClass' size='medium' variant="contained" color="primary" type='submit' startIcon={<CheckIcon />}>Salvar</Button>
                     <Button className='buttonClass' variant="contained" color="secondary" onClick={handleRedirect} startIcon={<ArrowBackIcon />}>Voltar</Button>
                 </Form>
