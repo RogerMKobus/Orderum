@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div `
+  width: 100%;
   position: relative;
   background: #FFF;
   border-radius: 5px;
@@ -17,17 +18,19 @@ export const Container = styled.div `
   }
 
   .edit{
-    padding-top: 2rem;
+    height: 12%;
+    width:10%;
+    margin: 1rem 0;
     position: absolute;
-    display:inline-block;
-    left: 210px;
+    left: 70%;
   }
   
   .right{
-    padding-top: 2rem;
+    height: 12%;
+    width:10%;
+    margin: 1rem 0;
     position: absolute;
-    display:inline-block;
-    left: 250px;
+    left: 85%;
   }
 
 `;

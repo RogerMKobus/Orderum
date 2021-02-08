@@ -44,7 +44,7 @@ export const Container = styled.div `
   }
 
   .select{
-    height: 40px;
+    height: 50px;
     overflow: unset;
     caret-color: transparent;
     width: 40%;
@@ -53,5 +53,5 @@ export const Container = styled.div `
     padding-left: 5px;
   }
 
-  .Select__value-container { height: 40px; }
+  .Select__value-container { height: 50px; }
 `;
