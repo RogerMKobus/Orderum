@@ -61,7 +61,7 @@ function EditOrder() {
                     <Input name='contact' />
                     <label>Data:</label>
                     <br />
-                    <DatePicker className='date' name='date' />
+                    <DatePicker className='date' name='date' edit />
                     <br />
                     <label>Linha:</label>
                     <Select classNamePrefix="Select" className='select' name='lane' options={options} laneTitle={getLane.title} minMenuHeight='35' />
