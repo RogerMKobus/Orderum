@@ -4,12 +4,14 @@ import {
 } from 'react-native';
 
 import Header from './src/components/Header'
+import Lane from './src/components/Lane'
 
 const App = () => {
   return (
-    <ScrollView>
+    <>
       <Header />
-    </ScrollView>
+      <Lane />
+    </>
   );
 };
 
