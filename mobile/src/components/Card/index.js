@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api'
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import { List, IconButton } from 'react-native-paper';
 import { StyledText } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
-const Card = (laneId) => {
+const Card = (laneId ) => {
+
+  const navigation = useNavigation();
 
   const [expanded, setExpanded] = useState(false);
 
@@ -52,6 +55,7 @@ const Card = (laneId) => {
             title={item.date} />
             <IconButton icon="playlist-edit"
             size={30}
+            onPress={()=> navigation.navigate('Edit')}
             />
             <IconButton icon="delete" 
             size={30}
