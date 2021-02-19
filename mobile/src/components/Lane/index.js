@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Text, FlatList } from 'react-native';
-
+import { FlatList, View } from 'react-native';
+import Card from '../Card'
 import api from '../../services/api'
 
-import { Container } from './styles';
+import { Container, StyledText, StyledView } from './styles';
 
 const Lane = () => {
     const [lanes, setLanes] = useState()
@@ -22,9 +22,12 @@ const Lane = () => {
           <FlatList 
             data={lanes}
             renderItem={({item})=> 
-                <Text>
+            <StyledView>
+                <StyledText>
                     {item.title}
-                </Text>
+                </StyledText>
+                <Card laneId={item._id}/>
+            </StyledView>   
             }
             keyExtractor={(item, index) => index.toString()}
           />

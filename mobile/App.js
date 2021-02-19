@@ -1,16 +1,13 @@
 import React from 'react';
-import {
-  ScrollView,
-} from 'react-native';
 
 import Header from './src/components/Header'
-import Lane from './src/components/Lane'
+import Board from './src/components/Board'
 
 const App = () => {
   return (
     <>
       <Header />
-      <Lane />
+      <Board />
     </>
   );
 };

@@ -7,7 +7,7 @@ export const Container = styled.View`
 `
 
 export const Text = styled.Text`
-    font-size: 18px;
+    font-size: 25px;
     font-weight: bold;
     color: #FFF;
     margin: auto;
