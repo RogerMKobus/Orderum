@@ -9,8 +9,9 @@ export const Container = styled.View`
 `
 
 export const StyledText = styled.Text`
-  font-size: 20px;
+  font-size: 22px;
   margin-left: 10px;
+  font-weight: bold;
 `
 
 export const StyledView = styled.View`
