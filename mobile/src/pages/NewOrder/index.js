@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik'
-import { TextInput } from 'react-native-paper'
-import { Button } from 'react-native'
+import { TextInput, Button } from 'react-native-paper'
 import Header from '../../components/Header'
 import DateTimePicker from '@react-native-community/datetimepicker';
 import api from '../../services/api'
 import { useNavigation } from '@react-navigation/native'
-// import { Container } from './styles';
 
 const NewOrder = () => {
 
   const navigation = useNavigation();
-  
+
   const [show, setShow] = useState(false)
 
   const newDate = new Date()
-  const dateString = (newDate.getDate() + 7)  + '/' + (newDate.getMonth() + 1) + '/' + newDate.getFullYear()
+  const dateString = (newDate.getDate() + 7) + '/' + (newDate.getMonth() + 1) + '/' + newDate.getFullYear()
 
   const { handleChange, handleSubmit, values, setFieldValue } = useFormik({
     initialValues: {
@@ -25,11 +23,13 @@ const NewOrder = () => {
       date: `${dateString}`
     },
     onSubmit: async (values) => {
-      try{
-        await api.post('/order', values)
-        navigation.push('Home')
+      try {
+        if (values.title && values.date) {
+          await api.post('/order', values)
+          navigation.push('Home')
+        }
       }
-      catch(err){
+      catch (err) {
         console.log(err)
       }
     }
@@ -37,8 +37,10 @@ const NewOrder = () => {
 
   const onChange = (event, selectedDate) => {
     setShow(false)
-    const selectedDateString = selectedDate.getDate() + '/' + (selectedDate.getMonth() + 1) + '/' + selectedDate.getFullYear()
-    setFieldValue("date", selectedDateString)
+    if (selectedDate) {
+      const selectedDateString = selectedDate.getDate() + '/' + (selectedDate.getMonth() + 1) + '/' + selectedDate.getFullYear()
+      setFieldValue("date", selectedDateString)
+    }
   }
 
   const handleOpen = () => {
@@ -64,9 +66,18 @@ const NewOrder = () => {
         onChangeText={handleChange('contact')}
       />
       <TextInput
+        style={{
+          marginBottom: 20
+        }}
         label="Data"
         value={values.date}
         onChangeText={handleChange('date')}
+        right={
+          <TextInput.Icon
+            name="calendar"
+            onPress={handleOpen}
+          />
+        }
       />
       { show &&
         <DateTimePicker
@@ -78,8 +89,17 @@ const NewOrder = () => {
           onChange={onChange}
         />
       }
-      <Button onPress={handleOpen} title='Alterar Data' />
-      <Button onPress={handleSubmit} title="Submit" />
+      <Button
+        style={{
+          height: 50,
+          paddingTop: 5
+        }}
+        icon="check"
+        color='#073596'
+        mode="contained"
+        onPress={handleSubmit}>
+        Enviar
+      </Button>
     </>
   )
 }
