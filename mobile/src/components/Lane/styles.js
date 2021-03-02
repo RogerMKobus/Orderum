@@ -9,14 +9,14 @@ export const Container = styled.View`
 `
 
 export const StyledText = styled.Text`
-  font-size: 22px;
+  font-size: 25px;
   margin-left: 10px;
   font-weight: bold;
 `
 
 export const StyledView = styled.View`
-  margin: 15px 0;
-  border-top-color: black;
+  margin: 0;
+  border-color: #073596;
   border-top-width: 1px;
   width: ${windowWidth}px;
 

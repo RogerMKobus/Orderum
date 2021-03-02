@@ -31,6 +31,10 @@ const Card = ({laneId, lanes}) => {
           return <List.AccordionGroup>
             <List.Accordion
               id={item._id}
+              style={{
+                borderBottomColor: '#303030', borderWidth: 1, borderTopWidth: 1
+              }
+              }
               titleStyle={{ fontSize: 18 }}
               title={item.title}
               expanded={expanded}
@@ -65,7 +69,7 @@ const Card = ({laneId, lanes}) => {
               />
               <IconButton icon="delete"
                 size={30}
-                style={{ position: 'absolute', left: '15%', top: '80%' }} />
+                style={{ position: 'absolute', left: '15%', bottom: '0%' }} />
             </List.Accordion>
           </List.AccordionGroup>
         }
