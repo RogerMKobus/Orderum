@@ -5,7 +5,7 @@ import { List, IconButton } from 'react-native-paper';
 import { StyledText } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-const Card = (laneId) => {
+const Card = ({laneId, lanes}) => {
 
   const navigation = useNavigation();
 
@@ -27,7 +27,7 @@ const Card = (laneId) => {
     <FlatList
       data={orders}
       renderItem={({ item }) => {
-        if (item.lane === laneId.laneId) {
+        if (item.lane === laneId) {
           return <List.AccordionGroup>
             <List.Accordion
               id={item._id}
@@ -58,7 +58,10 @@ const Card = (laneId) => {
                 title={item.date} />
               <IconButton icon="playlist-edit"
                 size={30}
-                onPress={() => navigation.navigate('Edit')}
+                onPress={() => {
+                  const data = {...item,  ...lanes}
+                  navigation.navigate('Edit', data)
+                }}
               />
               <IconButton icon="delete"
                 size={30}

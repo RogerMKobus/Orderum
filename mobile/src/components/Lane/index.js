@@ -26,7 +26,7 @@ const Lane = () => {
                 <StyledText>
                     {item.title}
                 </StyledText>
-                <Card laneId={item._id}/>
+                <Card laneId={item._id} lanes={lanes}/>
             </StyledView>   
             }
             keyExtractor={(item, index) => index.toString()}
