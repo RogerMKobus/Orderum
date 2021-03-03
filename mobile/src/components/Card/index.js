@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api'
-import { FlatList } from 'react-native';
+import { FlatList, Alert } from 'react-native';
 import { List, IconButton } from 'react-native-paper';
 import { StyledText } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-const Card = ({laneId, lanes}) => {
+const Card = ({ laneId, lanes }) => {
 
   const navigation = useNavigation();
 
@@ -32,7 +32,7 @@ const Card = ({laneId, lanes}) => {
             <List.Accordion
               id={item._id}
               style={{
-                borderBottomColor: '#303030', borderWidth: 1, borderTopWidth: 1
+                borderBottomColor: '#505050', borderBottomWidth: 1, borderTopWidth: 1
               }
               }
               titleStyle={{ fontSize: 18 }}
@@ -63,13 +63,34 @@ const Card = ({laneId, lanes}) => {
               <IconButton icon="playlist-edit"
                 size={30}
                 onPress={() => {
-                  const data = {...item,  ...lanes}
+                  const data = { ...item, ...lanes }
                   navigation.navigate('Edit', data)
                 }}
               />
               <IconButton icon="delete"
                 size={30}
-                style={{ position: 'absolute', left: '15%', bottom: '0%' }} />
+                style={{ position: 'absolute', left: '15%', bottom: '0%' }}
+                onPress={() => {
+                  Alert.alert(
+                    "Deseja realmente excluir?",
+                    "",
+                    [
+                      {
+                        text: "Não",
+                        onPress: () => {},
+                        style: "cancel"
+                      },
+                      {
+                        text: "Sim",
+                        onPress: async () => { 
+                          await api.delete(`/${item._id}/order`)
+                          navigation.push('Home') 
+                        }
+                      }
+                    ]
+                  )
+                }}
+              />
             </List.Accordion>
           </List.AccordionGroup>
         }
