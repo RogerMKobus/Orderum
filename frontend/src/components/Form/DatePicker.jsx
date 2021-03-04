@@ -26,7 +26,8 @@ function DatePicker({ edit, name, ...rest }) {
                 setDate(newDate)
             }
             else {
-                const newDate = new Date().setDate(new Date().getDate() + 7)
+                const newDate = new Date()
+                newDate.setDate(new Date().getDate() + 7)
                 setDate(newDate)
             }
         }
