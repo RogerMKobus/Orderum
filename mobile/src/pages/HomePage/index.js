@@ -1,13 +1,18 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import { ScrollView, LogBox } from 'react-native'
 import { FAB } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 import Header from '../../components/Header'
 import Board from '../../components/Board'
 
 const HomePage = ({ navigation }) => {
+
+    useEffect(() => {
+        LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+    }, [])
+
     return (
-        <>
+        <ScrollView>
             <Header />
             <Board />
             <FAB
@@ -16,7 +21,7 @@ const HomePage = ({ navigation }) => {
                 icon="plus"
                 onPress={() => navigation.navigate('New')}
             />
-        </>
+        </ScrollView>
     )
 }
 
